@@ -38,11 +38,11 @@ window.onload = function() {
 function revealMessage() {
     // Tech-themed New Year messages
     const messages = [
-        "🤖 while(year == 2025) { success++; bugs = 0; } Happy New Year to my favorite coder!",
+        "🤖 while(year == 2025) { success++; bugs = 0; } // Happy New Year to coder in you!",
         "📊 SELECT happiness, growth FROM life WHERE year = 2025; // May your queries return success!",
         "💻 git commit -m 'Initialize Amazing Year 2025' // Pushing happiness to production!",
         "🔮 async function year2025() { await dreams.fulfill(); return success.infinity; }",
-        "🎯 try { const year = new Success(2025); } catch(challenges) { return overcome(challenges); }",
+        "🎯 try { const year = new Success(2025); } // catch(challenges) { return overcome(challenges); }",
         "🌟 npm install happiness@2025 --save // Successfully installed future dreams!",
         "🧠 class Year2025 extends Opportunities { constructor() { this.success = Infinity; }}",
         "📈 model.train(dedication, hardwork).then(() => success.achieve());",
