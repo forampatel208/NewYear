@@ -184,7 +184,7 @@ body::before {
 }
 
 .loading-bar {
-    width: 250px;
+    width: 500px;
     height: 4px;
     background: rgba(0, 255, 255, 0.1);
     border-radius: 2px;
