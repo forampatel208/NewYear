@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>New Year 2025 - Digital Dreams</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap');
+        
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: #0B0B3B;
+            color: #fff;
+            font-family: 'Space Grotesk', sans-serif;
+            overflow: hidden;
+        }
+        
+        #loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        
+        .matrix-text {
+            position: absolute;
+            font-size: 14px;
+            color: #0f0;
+            text-shadow: 0 0 5px #0f0;
+            white-space: nowrap;
+            z-index: -1;
+        }
+        
+        .container {
+            text-align: center;
+            padding: 40px;
+            border-radius: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            max-width: 700px;
+            position: relative;
+            box-shadow: 0 0 50px rgba(0, 255, 255, 0.3);
+            border: 2px solid rgba(0, 255, 255, 0.5);
+            backdrop-filter: blur(10px);
+        }
+        
+        .year-text {
+            font-size: 5em;
+            font-weight: bold;
+            background: linear-gradient(45deg, #00ffff, #ff00ff);
+            -webkit-background-clip: text;
+            color: transparent;
+            margin: 0;
+            line-height: 1;
+        }
+        
+        .glowing-text {
+            color: #00ffff;
+            text-shadow: 0 0 10px #00ffff;
+            font-size: 2em;
+            margin: 20px 0;
+        }
+        
+        .sender {
+            font-size: 2.5em;
+            margin: 25px 0;
+            background: linear-gradient(45deg, #FFD700, #FFA500);
+            -webkit-background-clip: text;
+            color: transparent;
+            font-weight: bold;
+        }
+        
+        .wishes {
+            color: #fff;
+            font-size: 1.6em;
+            margin: 30px 0;
+            line-height: 1.6;
+            text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+        }
+        
+        .hack-button {
+            background: transparent;
+            border: 2px solid #00ffff;
+            color: #00ffff;
+            padding: 15px 40px;
+            cursor: pointer;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.2em;
+            transition: all 0.3s;
+            border-radius: 50px;
+            margin: 20px 0;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .hack-button:hover {
+            background: #00ffff;
+            color: #000;
+            box-shadow: 0 0 30px rgba(0, 255, 255, 0.5);
+            transform: scale(1.05);
+        }
+        
+        #message {
+            margin-top: 25px;
+            font-size: 1.4em;
+            color: #00ffff;
+            padding: 20px;
+            border-radius: 15px;
+            background: rgba(0, 0, 0, 0.5);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+        
+        .emoji-decor {
+            font-size: 30px;
+            margin: 15px 0;
+            letter-spacing: 10px;
+        }
+        
+        .loading-bar {
+            width: 200px;
+            height: 4px;
+            background: rgba(0, 255, 255, 0.2);
+            border-radius: 2px;
+            overflow: hidden;
+            margin-top: 10px;
+        }
+        
+        .loading-bar::after {
+            content: '';
+            display: block;
+            width: 40%;
+            height: 100%;
+            background: #00ffff;
+            animation: loading 1.5s infinite;
+        }
+        
+        @keyframes loading {
+            0% { transform: translateX(-200px); }
+            100% { transform: translateX(500px); }
+        }
+    </style>
+</head>
+<body>
+    <div id="loading">
+        <div>
+            <div class="glowing-text">INITIALIZING 2025</div>
+            <div class="loading-bar"></div>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="year-text">2025</div>
+        <div class="glowing-text">NEW YEAR</div>
+        <div class="emoji-decor">✨ 🎯 💫</div>
+        <div class="sender">FORAM PANSURIYA</div>
+        <div class="wishes">
+            As we step into the future,<br>
+            May your code be bug-free 🚀<br>
+            Your designs be pixel-perfect 💎<br>
+            And your dreams turn into reality ⭐️
+        </div>
+        <button class="hack-button" onclick="revealMessage()">Decrypt Future</button>
+        <div id="message"></div>
+        <div class="emoji-decor">🎯 ⚡️ 💫</div>
+    </div>
+
+    <script>
+        // Matrix rain effect with modern characters
+        function createMatrixRain() {
+            const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*+=";
+            const container = document.body;
+            
+            setInterval(() => {
+                const el = document.createElement("div");
+                el.className = "matrix-text";
+                el.style.left = Math.random() * 100 + "vw";
+                el.style.animationDuration = Math.random() * 2 + 1 + "s";
+                el.innerText = chars[Math.floor(Math.random() * chars.length)];
+                container.appendChild(el);
+                
+                const animation = el.animate([
+                    { transform: "translateY(-100vh)" },
+                    { transform: "translateY(100vh)" }
+                ], {
+                    duration: Math.random() * 2000 + 3000,
+                    easing: "linear"
+                });
+                
+                animation.onfinish = () => el.remove();
+            }, 50);
+        }
+
+        // Initialize
+        window.onload = function() {
+            setTimeout(() => {
+                document.getElementById('loading').style.display = 'none';
+                createMatrixRain();
+            }, 3000);
+        };
+
+        function revealMessage() {
+            const messages = [
+                "🚀 FUTURE SCAN COMPLETE: 2025 is your year to innovate and inspire!",
+                "💫 QUANTUM PREDICTION: Epic achievements loading... Success imminent!",
+                "⚡️ SYSTEM UPGRADE: Your potential has been maximized for 2025!",
+                "🎯 ALGORITHM FORECAST: Exceptional success rate detected ahead!",
+                "💎 FUTURE DATABASE UNLOCKED: Your dreams are scheduled for reality!"
+            ];
+            const messageEl = document.getElementById('message');
+            messageEl.style.display = 'block';
+            let currentChar = 0;
+            const message = messages[Math.floor(Math.random() * messages.length)];
+            messageEl.innerText = '';
+            messageEl.style.opacity = '1';
+            
+            const typing = setInterval(() => {
+                if(currentChar < message.length) {
+                    messageEl.innerText += message[currentChar];
+                    currentChar++;
+                } else {
+                    clearInterval(typing);
+                }
+            }, 50);
+        }
+    </script>
+</body>
+</html>
