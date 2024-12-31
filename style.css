@@ -165,6 +165,7 @@ body::before {
 
 #message {
     width: 90%;
+    max-width: 100%; 
     margin-top: 25px;
     font-size: 1.4em;
     color: #00ffff;
@@ -175,6 +176,10 @@ body::before {
     transition: all 0.5s ease;
     border: 1px solid rgba(0, 255, 255, 0.2);
     box-shadow: 0 0 20px rgba(0, 255, 255, 0.1);
+    word-wrap: break-word;
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
+    text-align: center; 
 }
 
 .emoji-decor {
