@@ -43,9 +43,9 @@ body::before {
 
 .matrix-text {
     position: absolute;
-    font-size: 16px;
-    color: rgba(0, 100, 255, 0.4);
-    text-shadow: 0 0 8px rgba(0, 200, 255, 0.6);
+    font-size: 18px;
+    color: rgba(0, 10, 255, 0.6);
+    text-shadow: 0 0 8px rgba(0, 100, 255, 0.6);
     white-space: nowrap;
     z-index: -1;
 }
