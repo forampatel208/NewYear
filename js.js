@@ -1,6 +1,6 @@
 // Function to create Matrix Rain Effect
 function createMatrixRain() {
-    const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!~@#$%^&*()-<>+=";
+    const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZqwertyuioplkjhgfdsazxcvbnm0123456789!~@#$%^&*()-<>+=";
     const container = document.body;
 
     setInterval(() => {
