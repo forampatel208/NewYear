@@ -123,9 +123,8 @@
         }
         
         .loading-bar {
-            width: 200px;
+            width: 300px;
             height: 6px;
-            margin-left: 50px;
             background: rgba(0, 255, 255, 0.1);
             border-radius: 3px;
             overflow: hidden;
