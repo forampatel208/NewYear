@@ -1,8 +1,8 @@
-// Function to create Matrix Rain Effect
+// Matrix rain effect
 function createMatrixRain() {
-    const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZqwertyuioplkjhgfdsazxcvbnm0123456789!~@#$%^&*()-<>+=";
+    const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@#$%^&*()_+";
     const container = document.body;
-
+    
     setInterval(() => {
         const el = document.createElement("div");
         el.className = "matrix-text";
@@ -10,110 +10,83 @@ function createMatrixRain() {
         el.style.animationDuration = Math.random() * 2 + 1 + "s";
         el.innerText = chars[Math.floor(Math.random() * chars.length)];
         container.appendChild(el);
-
-        const animation = el.animate(
-            [
-                { transform: "translateY(-100vh)" },
-                { transform: "translateY(100vh)" }
-            ],
-            {
-                duration: Math.random() * 2000 + 3000,
-                easing: "linear"
-            }
-        );
-
+        
+        const animation = el.animate([
+            { transform: "translateY(-100vh)", opacity: 1 },
+            { transform: "translateY(100vh)", opacity: 0 }
+        ], {
+            duration: Math.random() * 2000 + 3000,
+            easing: "linear"
+        });
+        
         animation.onfinish = () => el.remove();
     }, 50);
 }
 
-// Function to simulate the loading screen
-function simulateLoadingScreen() {
+// Initialize
+window.onload = function() {
     setTimeout(() => {
-        const loadingScreen = document.getElementById("loading");
-        loadingScreen.style.opacity = "0";
-
+        const loadingScreen = document.getElementById('loading');
+        loadingScreen.style.opacity = '0';
         setTimeout(() => {
-            loadingScreen.style.display = "none";
+            loadingScreen.style.display = 'none';
             createMatrixRain();
-        }, 500); // Matches the CSS transition duration
+        }, 500);
     }, 3000);
-}
+};
 
-// Function to reveal the "Decrypt Future" message
 function revealMessage() {
+    // Tech-themed New Year messages
     const messages = [
-        "🚀 FUTURE SCAN COMPLETE: 2025 is your year to innovate and inspire!",
-        "💫 QUANTUM PREDICTION: Epic achievements loading... Success imminent!",
-        "⚡️ SYSTEM UPGRADE: Your potential has been maximized for 2025!",
-        "🎯 ALGORITHM FORECAST: Exceptional success rate detected ahead!",
-        "💎 FUTURE DATABASE UNLOCKED: Your dreams are scheduled for reality!"
+        "🤖 while(year == 2025) { success++; bugs = 0; } Happy New Year to my favorite coder!",
+        "📊 SELECT happiness, growth FROM life WHERE year = 2025; // May your queries return success!",
+        "💻 git commit -m 'Initialize Amazing Year 2025' // Pushing happiness to production!",
+        "🔮 async function year2025() { await dreams.fulfill(); return success.infinity; }",
+        "🎯 try { const year = new Success(2025); } catch(challenges) { return overcome(challenges); }",
+        "🌟 npm install happiness@2025 --save // Successfully installed future dreams!",
+        "🧠 class Year2025 extends Opportunities { constructor() { this.success = Infinity; }}",
+        "📈 model.train(dedication, hardwork).then(() => success.achieve());",
+        "🎉 function celebrate() { return Array(2025).fill('happiness').map(dream => achieve(dream)); }"
     ];
-
-    const surpriseMessage = "🎉 SURPRISE UNLOCKED: You are destined for a groundbreaking invention in 2025! 💡";
-    const messageEl = document.getElementById("message");
-    const randomMessage = messages[Math.floor(Math.random() * messages.length)];
+    
+    const messageEl = document.getElementById('message');
+    messageEl.style.display = 'block';
     let currentChar = 0;
+    const message = messages[Math.floor(Math.random() * messages.length)];
+    messageEl.innerText = '';
+    messageEl.style.opacity = '1';
+    
+    // Add typing sound effect
+    const typeSound = new Audio('data:audio/wav;base64,//uQRAAAAWMSLwUIYAAsYkXgoQwAEaYLWfkWgAI0wWs/ItAAAGDgYtAgAyN+QWaAAihwMWm4G8QQRDiMcCBcH3Cc+CDv/7xA4Tvh9Rz/y8QADBwMWgQAZG/ILNAARQ4GLTcDeIIIhxGOBAuD7hOfBB3/94gcJ3w+o5/5eIAIAAAVwWgQAVQ2ORaIQwEMAJiDg95G4nQL7mQVWI6GwRcfsZAcsKkJvxgxEjzFUgfHoSQ9Qq7KNwqHwuB13MA4a1q/DmBrHgPcmjiGoh//EwC5nGPEmS4RcfkVKOhJf+WOgoxJclFz3kgn//dBA+ya1GhurNn8zb//9NNutNuhz31f////9vt///z+IdAEAAAK4LQIAKobHItEIYCGAExBwe8jcToF9zIKrEdDYIuP2MgOWFSE34wYiR5iqQPj0JIeoVdlG4VD4XA67mAcNa1fhzA1jwHuTRxDUQ//iYBczjHiTJcIuPyKlHQkv/LHQUYkuSi57yQT//uggfZNajQ3Vmz+Zt//+mm3Wm3Q576v////+32///5/EOgAAADVghQAAAAA');
+    typeSound.volume = 0.2;
 
-    messageEl.style.display = "block";
-    messageEl.style.opacity = "1";
-    messageEl.innerText = "";
-
-    const typingEffect = setInterval(() => {
-        if (currentChar < randomMessage.length) {
-            messageEl.innerText += randomMessage[currentChar];
+    // Add glitch effect class
+    messageEl.classList.add('glitch-effect');
+    
+    const typing = setInterval(() => {
+        if(currentChar < message.length) {
+            messageEl.innerText += message[currentChar];
+            typeSound.currentTime = 0;
+            typeSound.play().catch(() => {}); // Ignore audio play errors
             currentChar++;
-        } else {
-            clearInterval(typingEffect);
-
-            // Trigger the surprise message after a delay
-            if (Math.random() < 0.3) { // 30% chance to reveal the surprise
+            
+            // Add random glitch effect
+            if(Math.random() < 0.1) {
+                messageEl.style.textShadow = `
+                    ${Math.random() * 4}px ${Math.random() * 4}px #0ff,
+                    ${Math.random() * -4}px ${Math.random() * -4}px #f0f
+                `;
                 setTimeout(() => {
-                    const surpriseEl = document.createElement("div");
-                    surpriseEl.className = "surprise";
-                    surpriseEl.innerText = surpriseMessage;
-                    document.body.appendChild(surpriseEl);
-
-                    surpriseEl.animate(
-                        [
-                            { transform: "scale(0)" },
-                            { transform: "scale(1.2)" },
-                            { transform: "scale(1)" }
-                        ],
-                        {
-                            duration: 1000,
-                            easing: "ease-out"
-                        }
-                    );
-                }, 1000);
+                    messageEl.style.textShadow = 'none';
+                }, 50);
             }
+        } else {
+            clearInterval(typing);
+            // Final animation
+            messageEl.style.transform = 'scale(1.05)';
+            setTimeout(() => {
+                messageEl.style.transform = 'scale(1)';
+            }, 200);
         }
     }, 50);
 }
-
-// Initialize the script on page load
-window.onload = function () {
-    simulateLoadingScreen();
-};
-
-// Easter Egg Trigger
-document.addEventListener("keydown", (event) => {
-    if (event.key === "s") { // 's' for "surprise"
-        const surpriseMessage = "✨ You've discovered a secret! Stay curious!";
-        const surpriseEl = document.createElement("div");
-        surpriseEl.className = "surprise";
-        surpriseEl.innerText = surpriseMessage;
-        document.body.appendChild(surpriseEl);
-
-        surpriseEl.animate(
-            [
-                { transform: "scale(0)" },
-                { transform: "scale(1.2)" },
-                { transform: "scale(1)" }
-            ],
-            {
-                duration: 1000,
-                easing: "ease-out"
-            }
-        );
-    }
-});
