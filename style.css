@@ -44,7 +44,7 @@ body::before {
 .matrix-text {
     position: absolute;
     font-size: 16px;
-    color: rgba(0, 255, 255, 0.4);
+    color: rgba(0, 200, 255, 0.4);
     text-shadow: 0 0 8px rgba(0, 255, 255, 0.6);
     white-space: nowrap;
     z-index: -1;
@@ -164,6 +164,7 @@ body::before {
 }
 
 #message {
+    width: 90%;
     margin-top: 25px;
     font-size: 1.4em;
     color: #00ffff;
