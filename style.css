@@ -123,8 +123,9 @@
         }
         
         .loading-bar {
-            width: 300px;
+            width: 200px;
             height: 6px;
+            margin-left: 30px;
             background: rgba(0, 255, 255, 0.1);
             border-radius: 3px;
             overflow: hidden;
@@ -165,4 +166,20 @@
             .wishes {
                 font-size: 1.2em;
             }
+        }
+
+        .surprise {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #222;
+            color: #0f0;
+            font-size: 2rem;
+            padding: 20px;
+            border: 2px solid #0f0;
+            border-radius: 10px;
+            text-align: center;
+            z-index: 1000;
+            display: none;
         }
